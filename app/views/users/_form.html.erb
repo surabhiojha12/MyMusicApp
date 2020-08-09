@@ -1,0 +1,43 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_no %><br>
+    <%= f.number_field :phone_no %>
+  </div>
+   <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+    <%= f.label :confirm_password %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+ <!-- If song_provider then its true else its false-->
+  <div class="field">
+    <%= f.label :type_of_user %><br/>
+    <%= f.label :type_of_user, "Song_Consumer", :value => "Song_Consumer"  %> 
+    <%= f.radio_button :type_of_user, false %><br>
+    <%= f.label :type_of_user, "Song_Provider", :value => "Song_Provider" %> &nbsp
+    <%= f.radio_button :type_of_user, true  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

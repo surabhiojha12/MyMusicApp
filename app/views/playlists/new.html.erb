@@ -1,0 +1,22 @@
+<h1>Create Your Playlist </h1>
+<form action="/playlists" method="post">
+  <% if @playlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@playlist.errors.count, "error") %> prohibited this playlist from being saved:</h2>
+
+      <ul>
+      <% @playlist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+ <input name="name" type="text"  placeholder="Playlist Name"/>
+ <br>
+  <input type="submit" value="Create">
+</form>
+
+<h2>View Your Playlist</h2>
+<button><%= link_to 'Your Playlists ',  show_playlist_path %></button>

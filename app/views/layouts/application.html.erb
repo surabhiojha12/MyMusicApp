@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyMusicApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<ul class="navbar">
+  <li class="nav-component"><%= link_to MyMusicApp, songs_path %></li>
+  
+  <% if logged_in?%>
+  <li class="nav-component" style="float:right">
+  <%=link_to 'playlist', playlists_new_path %>
+  </li>
+  <li class="nav-component" style="float:right">
+  <%=link_to current_user.username, users_profile_path %></li>
+  <%else%>
+  <li class="nav-component" style="float:right"><%=link_to 'Login', signin_path %></li>
+  <%end%>
+
+  
+</ul>
+<div class="center-of-page">
+<%= yield %>
+</div>
+</body>
+</html>

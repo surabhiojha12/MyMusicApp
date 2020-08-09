@@ -1,0 +1,30 @@
+<p id="error"><%= notice %></p>
+
+<h1><%= @content_text %></h1>
+
+<form action="/songs/search" method="post">
+  
+  <input type="text"  name="name" placeholder = "Search song">
+  
+  <input type="submit" value="Submit">
+</form>
+
+<div class="grid-container">
+<%if @songs%>
+ <% @songs.reverse.each do |song| %>
+  <div class="grid-item">
+  <p><%= song.name %></p>
+  
+  <iframe  height="315" width="" src="https://www.youtube.com/embed/<%=song.song_url%>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <p><%= song.description %></p>
+   <p><%= song.year %></p>
+   <p><%= link_to 'Add to playlist ', show_playlist_add_path(song),method: :post %></p>
+   <%if @edit_access%>
+   <p><%= link_to 'Delete ', song, method: :delete, data: { confirm: 'Are you sure? You Want to delete song?' } %></p>
+   <p><%= link_to 'Edit ', edit_song_path(song) %></p>
+   <%end%>
+  </div>
+<% end %>
+<% end%>
+</div>
+

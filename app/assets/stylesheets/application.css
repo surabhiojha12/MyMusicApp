@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body{
+  background-color: #221f1f;
+  color: aliceblue;
+}
+ input {
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=button], input[type=submit], input[type=reset] {
+    background-color: #D81F26;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  label{
+      font-size: 17px;
+      
+  }
+
+
+  .center-of-page{
+  margin: 50px;
+  
+  border: 3px solid #D81F26;
+  padding: 50px;
+  }
+
+  .display-details{
+      font-size: 18px;
+  }
+
+  button{
+    width: 200px;
+    padding: 10px;
+    font-size: medium;
+    color: black;
+  }
+
+  #error {
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 1px;
+    border: 1px solid white;
+    width: 50%;
+    background-color: white;
+  }
+
+  #error_explanation{
+    color: black;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-gap: 50px 50px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  
+  .grid-item {
+  
+    border: 1px solid  #D81F26;
+  
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D81F26;
+  }
+
+  .nav-component {
+    float: left;
+  }
+  
+  .nav-component a {
+    display: block;
+    color: white;
+    
+    font-size: 17px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav-component a:hover {
+    background-color: #111;
+  }

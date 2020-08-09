@@ -1,0 +1,27 @@
+<p id="error"><%= notice %></p>
+
+<h1><%= @content_text %></h1>
+
+<form action="/search_playlist" method="post">
+  
+  <input type="text"  name="name" placeholder = "Search playlist">
+  <input type="submit" value="Search">
+</form>
+<button><%= link_to 'Create new playlist',playlists_new_path %></button>
+<div class="grid-container">
+ <% @playlists.reverse.each do |playlist| %>
+  <div class="grid-item">
+  <h4><%= playlist.name %></h4>
+  <% playlist.songs.reverse.each do |song| %>
+  <p><%= song.name %></p>
+  <%end%>
+  <%if params[:song_id]%>
+    <p><p><%= link_to 'Add In This playlist', add_to_playlist_path(song_id: params[:song_id], playlist_id: playlist.id )%></p> </p>
+  <%end%>
+  <p><p><%= link_to 'View Playlist Songs', show_playlist_songs_path(playlist),method: :post %></p> </p>
+  <p><p><%= link_to 'Delete', delete_playlist_path(playlist), method: :delete, data: { confirm: 'Are you sure? You Want to delete playlist?' } %></p> </p>
+</div>
+
+<% end %>
+</div>
+

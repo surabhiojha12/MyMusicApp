@@ -1,0 +1,49 @@
+
+<h1> PROFILE PAGE </h1>
+
+
+<p id="notice"><%= notice %></p>
+<% if @user %>
+<p class="display-details">
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p class="display-details">
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p class="display-details">
+  <strong>Phone no:</strong>
+  <%= @user.phone_no %>
+</p>
+<p class="display-details">
+  <strong>User Type:</strong>
+  <% if @user.type_of_user %>
+  Song_Provider 
+  <% else %>
+  Song_Consumer
+  <%end%>
+</p>
+
+
+  <% if @user.type_of_user %>
+  <button>
+  <%= link_to 'Add New Song', new_song_path %>
+  </button> |
+  <button>
+  <%= link_to 'View/Edit Song ', addedsongs_songs_path, method: :post%>
+  </button> |
+  <%end%>
+
+<button>
+ <%= link_to 'Logout', signout_path, method: :delete, data: { confirm: 'Are you sure?' } %> 
+</button> |
+<button>
+<%= link_to 'Delete Your Account', user_path(current_user), method: :delete, data: { confirm: 'Are you sure? You Want to delete account?' } %>
+</button>
+
+<%else%>
+<%controller.redirect_to signin_path%>
+<%end%>
